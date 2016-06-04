@@ -1,1 +1,6 @@
-node_modules/
+Euro2016/src/Euro2016Web/node_modules/
+Euro2016/src/Euro2016Web/bin/
+Euro2016/src/Euro2016Web/obj/
+Euro2016/.vs/
+Euro2016/src/Euro2016Web/wwwroot/images/
+Euro2016/src/Euro2016Web/wwwroot/js/
