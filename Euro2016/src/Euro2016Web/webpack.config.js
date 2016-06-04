@@ -1,7 +1,7 @@
 module.exports = {
     entry: ['./js/index.js'],
     output: {
-        path: 'public/',
+        path: 'wwwroot/js/',
         filename: 'bundle.js'
     },
     module: {
@@ -14,7 +14,7 @@ module.exports = {
             {
                 test: /\.(jpg|png)$/,
                 exclude:/node_modules/,
-                loader: "url-loader?limit=10000"
+                loader: "url-loader?limit=10000&name=../images/[hash].[ext]"
             },
             {
 				test: /\.less$/,
