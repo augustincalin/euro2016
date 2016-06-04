@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>⚽ CB EURO 2016</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="assets/app.css" />
+</head>
+
+<body ng-app="euro2016" layout="column">
+
+    <md-toolbar layout="row">
+        <h1>Commerzbank EURO 2016</h1>
+    </md-toolbar>
+
+    <!-- Container #2 -->
+    <div flex layout="row">
+
+        <!-- Container #3 -->
+        <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+            <div layout="column">
+                <h1 contenteditable="true" class="text-align-center">eh2caoa</h1>
+                <div layout="row" layout-align="space-around center">
+                    <div>12p</div>
+                    <div>#3</div>
+                </div>
+                <h5>Top 5</h5>
+                <ul>
+                    <li>1. User 1</li>
+                    <li>2. User 2</li>
+                    <li>3. User 3</li>
+                    <li>4. User 4</li>
+                    <li>5. User 5</li>
+                </ul>
+                <h5>Groups</h5>
+                <ul>
+                    <li>Group A</li>
+                    <li>Group B</li>
+                    <li>Group C</li>
+                    <li>Group D</li>
+                    <li>Group E</li>
+                    <li>Group F</li>
+                </ul>
+
+            </div>
+        </md-sidenav>
+
+        <!-- Container #4 -->
+        <md-content flex id="content">
+            <form name="projectForm">
+                <div id="matches" flex layout="column">
+                    <div class="day" layout="row">
+                        <div flex="none">
+                            <p class="md-caption">13.06.2016</p>
+                        </div>
+                    </div>
+                    <div id="match" flex layout="column">
+                        <div id="hour" flex layout="row" layout-align="center center">
+                            <p class="md-caption">15:00</div>
+                    </div>
+                    <div id="teams" layout="row">
+                        <div flex layout="row" layout-align="end center">
+                            <h1 class="md-title left-text">FRANCE</h1>
+                            <span class="flag flag-FRA"></span>
+                        </div>
+                        <div flex="none" layout="row" class="vs" layout-align="center center">
+                            <h1 class="md-caption">vs</h1>
+                        </div>
+                        <div flex layout="row" layout-align="start center">
+                            <span class="flag flag-ROM"></span>
+                            <h1 class="md-title right-text">ROMANIA</h1>
+                        </div>
+                    </div>
+                    <div id="final-result" layout="row">
+                        <div flex layout="row" layout-align="end start">
+                            <h1 class="md-display-1 left-text no-margin">7</h1>
+                        </div>
+                        <div flex="none" layout="row" class="vs" layout-align="center center">
+
+                        </div>
+                        <div flex layout="row">
+                            <h1 class="md-display-1 right-text no-margin">1</h1>
+                        </div>
+                    </div>
+                    <div id="aaa" layout="column">
+                        <div id="bet" layout="row">
+                            <div flex layout="row" layout-align="end start">
+                                <md-input-container class="md-block your-score" flex="20">
+                                    <label>your score</label>
+                                    <input type="text" step="any" name="score" ng-model="project.rate" ng-pattern="/^\d+$/" class="md-title text-align-right"
+                                    />
+                                    <div ng-messages="projectForm.score.$error" multiple md-auto-hide="false">
+                                        <div ng-message="pattern">
+                                            Not a number!
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div flex="none" class="vs"></div>
+                            <div flex class="text-align-left">
+                                <md-input-container class="md-block your-score" flex="20">
+                                    <label>your score</label>
+                                    <input type="text" step="any" name="score" ng-model="project.rate" ng-pattern="/^\d+$/" class="md-title" />
+                                    <div ng-messages="projectForm.score.$error" multiple md-auto-hide="false">
+                                        <div ng-message="pattern">
+                                            Not a number!
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+
+                        </div>
+                        <div id="result" flex layout="row" layout-align="center center">
+                            <p class="md-caption no-margin">You won 5 points for this match.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </md-content>
+
+    </div>
+    <script src="js/bundle.js"></script>
+
+</body>
+
+</html>
