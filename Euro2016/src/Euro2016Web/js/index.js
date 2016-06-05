@@ -11,3 +11,5 @@ var app = angular.module('euro2016', ['ngMaterial', 'ngMessages']);
 app.run(function ($log) {
     $log.debug('app started...');
 });
+
+require('./home')(app);

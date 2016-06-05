@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
+using Microsoft.EntityFrameworkCore;
+using Euro2016Web.Model;
+using Euro2016Web.ViewModel;
+using Euro2016Web.Core.Services;
+using Euro2016Web.Core.Interfaces.Services;
+using Euro2016Web.Core.Model;
+using Euro2016Web.Core.Interfaces;
+using Euro2016Web.Infrastructure.Data;
 
 namespace Euro2016Web
 {
@@ -28,6 +33,16 @@ namespace Euro2016Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
+            services.AddDbContext<EURO2016DBContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<DbContext, EURO2016DBContext>();
+            services.AddScoped<IMatchRepository, EfMatchRepository>();
+            services.AddScoped<IRepository<User>, EfRepository<User>>();
+            services.AddScoped<IRepository<Match>, EfRepository<Match>>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IMatchService, MatchService>();
+            services.AddScoped<IHomeService, HomeService>();
             services.AddMvc();
         }
 
