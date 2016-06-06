@@ -6,7 +6,7 @@
         homeService.getHomeData().then(
             function (response) {
                 $scope.vm = response.data;
-                $timeout(function () {  $scope.isDataLoaded = true; }, 500);
+                $timeout(function () {  $scope.isDataLoaded = true; }, 2000);
             },
             function (response) {
                 console.log(response);

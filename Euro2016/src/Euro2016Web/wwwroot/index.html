@@ -13,17 +13,17 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
     <md-toolbar layout="row">
-        <h1>Commerzbank EURO 2016 {{plm}}</h1>
+        <h1>Commerzbank EURO 2016</h1>
     </md-toolbar>
 
     <div flex layout="row">
 
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
             <div layout="column">
-                <h1 contenteditable="true" class="text-align-center">eh2caoa</h1>
+                <h1 contenteditable="true" class="text-align-center">{{vm.Name}}</h1>
                 <div layout="row" layout-align="space-around center">
-                    <div>12p</div>
-                    <div>#3</div>
+                    <div>{{vm.TotalPoints}}</div>
+                    <div>{{vm.Place}}</div>
                 </div>
                 <h5>Top 5</h5>
                 <ul>
