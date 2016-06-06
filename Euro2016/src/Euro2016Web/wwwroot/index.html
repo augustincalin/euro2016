@@ -2,13 +2,17 @@
 <html lang="en" ng-app="euro2016">
 
 <head>
-    <title>⚽ CB EURO 2016</title>
+    <title>@ CB EURO 2016</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
-
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+    </style>
 
 </head>
 
-<body layout="column" ng-controller="homeCtrl">
+<body layout="column" ng-controller="homeCtrl" ng-cloak>
     <div id="loader" ng-hide="isDataLoaded" flex layout="row" layout-align="center center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
@@ -20,7 +24,12 @@
 
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
             <div layout="column">
-                <h1 contenteditable="true" class="text-align-center">{{vm.Name}}</h1>
+                <div layout="column" layout-align="start center">
+                    <p>Hello, </p>
+                    <md-input-container class="md-block text-align-center your-name" flex="none">
+                        <input type="text" name="name" class="text-align-center" ng-model="vm.Name" />
+                    </md-input-container>
+                </div>
                 <div layout="row" layout-align="space-around center">
                     <div>{{vm.TotalPoints}}</div>
                     <div>{{vm.Place}}</div>
