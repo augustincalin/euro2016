@@ -9,7 +9,9 @@
 </head>
 
 <body layout="column" ng-controller="homeCtrl">
-
+    <div id="loader" ng-hide="isDataLoaded" flex layout="row" layout-align="center center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
     <md-toolbar layout="row">
         <h1>Commerzbank EURO 2016 {{plm}}</h1>
     </md-toolbar>

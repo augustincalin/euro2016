@@ -1,121 +1,164 @@
 
-.flag{
-  background-image: url('../images/flags.png');
-  background-size: 160px 352px;
-  display: block;
-  width:32px;
-  height: 32px;
-}
-.flag-ALB{
-  background-position: 100% 100%;
-}
-.flag-FRA{
-  background-position: 25% 30%;
-}
-.flag-ROU{
-  background-position: 25% 80%;
-}
-.flag-SUI{
-  background-position: 50% 90%;
-}
-.flag-ENG{
-  background-position: 75% 20%;
-}
-.flag-RUS{
-  background-position: 50% 80%;
-}
-.flag-SVK{
-  background-position: 75% 90%;
-}
-.flag-WAL{
-  background-position: 50% 100%;
-}
-.flag-GER{
-  background-position: 100% 30%;
-}
-.flag-NIR{
-  background-position: 50% 70%;
-}
-.flag-UKR{
-  background-position: 25% 100%;
-}
-.flag-CRO{
-  background-position: 100% 10%;
-}
-.flag-CZE{
-  background-position: 25% 20%;
-}
-.flag-ESP{
-  background-position: 25% 90%;
-}
-.flag-TUR{
-  background-position: 0% 100%;
-}
-.flag-BEL{
-  background-position: 0% 10%;
-}
-.flag-ITA{
-  background-position: 25% 50%;
-}
-.flag-IRL{
-  background-position: 100% 40%;
-}
-.flag-SWE{
-  background-position: 100% 90%;
-}
-.flag-AUT{
-  background-position: 75% 0;
-}
-.flag-HUN{
-  background-position: 50% 40%;
-}
-.flag-ISL{
-  background-position: 75% 40%;
-}
-.flag-POR{
-  background-position: 0 80%;
-}
-.flag-POL{
-  background-position: 100% 70%;
+.flag {
+    background-image: url('../images/flags.png');
+    background-size: 160px 352px;
+    display: block;
+    width: 32px;
+    height: 32px;
 }
 
-.left-text{
-  margin-right:10px;
+.flag-ALB {
+    background-position: 100% 100%;
 }
 
-.right-text{
-  margin-left:10px;
+.flag-FRA {
+    background-position: 25% 30%;
 }
 
-#content{
-  margin:10px;
+.flag-ROU {
+    background-position: 25% 80%;
 }
 
-.no-margin{
-  margin:0;
+.flag-SUI {
+    background-position: 50% 90%;
 }
 
-.your-score{
-  margin:10px 0 0 0;
-  width:80px;
+.flag-ENG {
+    background-position: 75% 20%;
 }
 
-.day{
-  border-bottom:1px solid silver;
+.flag-RUS {
+    background-position: 50% 80%;
 }
 
-.vs{
-  width:30px;
+.flag-SVK {
+    background-position: 75% 90%;
 }
 
-.text-align-center{
-  text-align:center;
+.flag-WAL {
+    background-position: 50% 100%;
 }
 
-.text-align-left{
-  text-align:left;
+.flag-GER {
+    background-position: 100% 30%;
 }
 
-.text-align-right{
-  text-align:right;
+.flag-NIR {
+    background-position: 50% 70%;
+}
+
+.flag-UKR {
+    background-position: 25% 100%;
+}
+
+.flag-CRO {
+    background-position: 100% 10%;
+}
+
+.flag-CZE {
+    background-position: 25% 20%;
+}
+
+.flag-ESP {
+    background-position: 25% 90%;
+}
+
+.flag-TUR {
+    background-position: 0% 100%;
+}
+
+.flag-BEL {
+    background-position: 0% 10%;
+}
+
+.flag-ITA {
+    background-position: 25% 50%;
+}
+
+.flag-IRL {
+    background-position: 100% 40%;
+}
+
+.flag-SWE {
+    background-position: 100% 90%;
+}
+
+.flag-AUT {
+    background-position: 75% 0;
+}
+
+.flag-HUN {
+    background-position: 50% 40%;
+}
+
+.flag-ISL {
+    background-position: 75% 40%;
+}
+
+.flag-POR {
+    background-position: 0 80%;
+}
+
+.flag-POL {
+    background-position: 100% 70%;
+}
+
+.left-text {
+    margin-right: 10px;
+}
+
+.right-text {
+    margin-left: 10px;
+}
+
+#content {
+    margin: 10px;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.your-score {
+    margin: 10px 0 0 0;
+    width: 80px;
+}
+
+.day {
+    border-bottom: 1px solid silver;
+}
+
+.vs {
+    width: 30px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+#loader {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+
+    &.ng-hide-add {
+        transition: 1s ease-in opacity;
+        opacity: 1;
+    }
+
+    &.ng-hide-add-active {
+        opacity: 0;
+    }
 }

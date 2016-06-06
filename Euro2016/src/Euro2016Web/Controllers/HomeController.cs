@@ -20,7 +20,7 @@ namespace Euro2016Web.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return new ObjectResult(_homeService.GetHomeViewModel("xxx"));
+            return new ObjectResult(_homeService.GetHomeViewModel(User.Identity.Name));
         }
     }
 }
