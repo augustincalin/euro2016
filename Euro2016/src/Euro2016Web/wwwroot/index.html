@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+            display: none !important;
+        }
     </style>
 
 </head>
@@ -16,8 +16,10 @@
     <div id="loader" ng-hide="isDataLoaded" flex layout="row" layout-align="center center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <md-toolbar layout="row">
-        <h1>Commerzbank EURO 2016</h1>
+    <md-toolbar layout="row" class="md-tall" layout-align="start center">
+        <h1 flex class="title">Commerzbank EURO 2016</h1>
+
+        <span flex="none" class="euro"></span>
     </md-toolbar>
 
     <div flex layout="row">
@@ -26,99 +28,100 @@
             <div layout="column">
                 <div layout="column" layout-align="start center">
                     <p>Hello, </p>
-                    <md-input-container class="md-block text-align-center your-name" flex="none">
-                        <input type="text" name="name" class="text-align-center" ng-model="vm.Name" />
+                    <md-input-container class="md-block text-align-center your-name no-margin" flex="none">
+                        <input type="text" name="name" class="text-align-center" ng-model="vm.Name" ng-change="nameChange()" />
                     </md-input-container>
                 </div>
-                <div layout="row" layout-align="space-around center">
-                    <div>{{vm.TotalPoints}}</div>
-                    <div>{{vm.Place}}</div>
+                <div layout="column">
+                    <div layout="row" layout-align="space-around center">
+                        <div class="md-caption">you have</div>
+                        <div class="md-caption">your place</div>
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <div class="md-headline">{{vm.TotalPoints}} <span class="coin"></span></div>
+                        <div class="md-headline">#{{vm.Place}}</div>
+                    </div>
                 </div>
-                <h5>Top 5</h5>
+                <h3 class="subtitle">Top 5</h3>
                 <ul>
-                    <li>1. User 1</li>
-                    <li>2. User 2</li>
-                    <li>3. User 3</li>
-                    <li>4. User 4</li>
-                    <li>5. User 5</li>
+                    <li ng-repeat="user in vm.Top5Users">{{$index+1}}. {{user.Name}} - {{user.TotalPoints}} <span class="coin-small"></span></li>
                 </ul>
-                <h5>Groups</h5>
+                <md-button class="md-raised md-primary viewTop button-subtitle">View Top</md-button>
+
+                <h3 class="subtitle">Groups</h3>
                 <ul>
-                    <li>Group A</li>
-                    <li>Group B</li>
-                    <li>Group C</li>
-                    <li>Group D</li>
-                    <li>Group E</li>
-                    <li>Group F</li>
+                    <li ng-repeat="group in vm.Groups"><a href="sss" class="normal-link">{{group.Name}}</a></li>
                 </ul>
+
+                <h3 class="subtitle">How?</h3>
+                <p class="para">If you guess the exact final score of a match you gain 5<span class="coin-small"></span></p>
+                <p class="para">If you guess that a team will won you will receive 3<span class="coin-small"></span></p>
+                <p class="para">If you guess the exact number of goals a team scores in a match you will receive 1<span class="coin-small"></span></p>
             </div>
         </md-sidenav>
 
         <md-content flex id="content">
             <form name="matchesForm">
                 <div id="matches" flex layout="column">
-                    <div id="previousDays" flex layout="column">
+                    <h1 class="text-align-center">Previous matches</h1>
+                    <div flex layout="column" ng-repeat="day in vm.PreviousDays" style="opacity:0.5">
                         <div class="day" layout="row">
                             <div flex="none">
-                                <p class="md-caption">13.06.2016</p>
+                                <p class="md-caption">{{day.Date|date:"dd.MM.yyyy"}}</p>
                             </div>
                         </div>
-                        <div flex layout="column">
-                            <div flex layout="row" layout-align="center center">
-                                <p class="md-caption">15:00</p>
-                            </div>
+                        <div flex layout="column" ng-repeat="match in day.Matches">
+
                             <div layout="row">
                                 <div flex layout="row" layout-align="end center">
-                                    <h1 class="md-title left-text">FRANCE</h1>
-                                    <span class="flag flag-FRA"></span>
+                                    <h1 class="md-title left-text">{{match.Team1}}</h1>
+                                    <span class="flag flag-{{match.Acronym1}}"></span>
                                 </div>
                                 <div flex="none" layout="row" class="vs" layout-align="center center">
                                     <h1 class="md-caption">vs</h1>
                                 </div>
                                 <div flex layout="row" layout-align="start center">
-                                    <span class="flag flag-ROM"></span>
-                                    <h1 class="md-title right-text">ROMANIA</h1>
+                                    <span class="flag flag-{{match.Acronym2}}"></span>
+                                    <h1 class="md-title right-text">{{match.Team2}}</h1>
                                 </div>
                             </div>
                             <div layout="row">
                                 <div flex layout="row" layout-align="end start">
-                                    <h1 class="md-display-1 left-text no-margin">7</h1>
+                                    <h1 class="md-display-1 left-text no-margin">{{match.Score1}}</h1>
                                 </div>
                                 <div flex="none" layout="row" class="vs" layout-align="center center">
 
                                 </div>
                                 <div flex layout="row">
-                                    <h1 class="md-display-1 right-text no-margin">1</h1>
+                                    <h1 class="md-display-1 right-text no-margin">{{match.Score2}}</h1>
                                 </div>
                             </div>
+
                             <div layout="column">
                                 <div layout="row">
                                     <div flex layout="row" layout-align="end start">
                                         <md-input-container class="md-block your-score" flex="none">
                                             <label>your score</label>
-                                            <input type="text" step="any" name="score" ng-model="project.rate" ng-pattern="/^\d+$/" class="md-title text-align-right" />
-                                            <div ng-messages="matchesForm.score.$error" multiple md-auto-hide="false">
-                                                <div ng-message="pattern">Not a number!</div>
-                                            </div>
+                                            <input type="text" disabled ng-model="match.Guess1" class="md-title text-align-right" />
                                         </md-input-container>
                                     </div>
                                     <div flex="none" class="vs"></div>
                                     <div flex class="text-align-left">
                                         <md-input-container class="md-block your-score" flex="none">
                                             <label>your score</label>
-                                            <input type="text" step="any" name="score" ng-model="project.rate" ng-pattern="/^\d+$/" class="md-title" />
-                                            <div ng-messages="matchesForm.score.$error" multiple md-auto-hide="false">
-                                                <div ng-message="pattern">Not a number!</div>
-                                            </div>
+                                            <input type="text" disabled ng-model="match.Guess2" class="md-title" />
                                         </md-input-container>
                                     </div>
                                 </div>
                                 <div flex layout="row" layout-align="center center">
-                                    <p class="md-caption no-margin">You won 5 points for this match.</p>
+                                    <p class="md-caption no-margin">You won {{match.PointsGained}}<span class="coin-small"></span> for this match.</p>
                                 </div>
+
                             </div>
+                            <div flex class="match-separator" ng-show="!$last">&nbsp;</div>
                         </div>
                     </div>
+                    <h1 class="text-align-center" style="margin-top:100px">Next matches</h1>
                     <div flex layout="column" ng-repeat="day in vm.NextDays">
                         <div class="day" layout="row">
                             <div flex="none">
@@ -147,7 +150,7 @@
                                     <div flex layout="row" layout-align="end start">
                                         <md-input-container class="md-block your-score" flex="none">
                                             <label>your score</label>
-                                            <input type="text" step="any" name="score_{{match.Id}}_1" ng-model="match.Guess1" ng-pattern="/^\d+$/" class="md-title text-align-right" ng-change="score1Change(match.Id, match.Guess1)" />
+                                            <input type="text" step="any" name="score_{{match.Id}}_1" ng-model="match.Guess1" ng-pattern="/^\d+$/" class="md-title text-align-right" ng-change="scoreChange(match.Id, true, match.Guess1)" />
                                             <div ng-messages="matchesForm['score_' + match.Id + '_1'].$error" multiple md-auto-hide="false">
                                                 <div ng-message="pattern">Not a number!</div>
                                             </div>
@@ -157,7 +160,7 @@
                                     <div flex class="text-align-left">
                                         <md-input-container class="md-block your-score" flex="none">
                                             <label>your score</label>
-                                            <input type="text" step="any" name="score_{{match.Id}}_2" ng-model="match.Guess2" ng-pattern="/^\d+$/" class="md-title" ng-change="score2Change(match.Id, match.Guess2)"/>
+                                            <input type="text" step="any" name="score_{{match.Id}}_2" ng-model="match.Guess2" ng-pattern="/^\d+$/" class="md-title" ng-change="scoreChange(match.Id, false, match.Guess2)" />
                                             <div ng-messages="matchesForm['score_' + match.Id + '_2'].$error" multiple md-auto-hide="false">
                                                 <div ng-message="pattern">Not a number!</div>
                                             </div>
@@ -166,7 +169,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
 

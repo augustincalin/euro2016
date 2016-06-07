@@ -11,36 +11,54 @@ namespace Euro2016Web.ViewModel
     {
         protected readonly IUserService _userService;
         protected readonly IMatchService _matchService;
-        public HomeService(IUserService userService, IMatchService matchService)
+        protected readonly IBetService _betService;
+        protected readonly IGroupService _groupService;
+        public HomeService(IUserService userService, IMatchService matchService, IBetService betService, IGroupService groupService)
         {
             _userService = userService;
             _matchService = matchService;
+            _betService = betService;
+            _groupService = groupService;
         }
-        public HomeViewModel GetHomeViewModel(string username)
+        public HomeViewModel GetHomeViewModel(string currentUsername, int? showForUserId)
         {
+            //DateTime nowDate = DateTime.Now;
+            DateTime nowDate = new DateTime(2016, 6,16);
             HomeViewModel viewModel = new HomeViewModel();
-            User currentUser = _userService.GetUserByName(username);
-            if(null == currentUser)
+            User currentUser = _userService.GetUserByName(currentUsername);
+            User userToShowFor = null;
+            if (null == currentUser)
             {
-                currentUser = _userService.Add(username);
+                currentUser = _userService.Add(currentUsername);
             }
+
+            userToShowFor = null != showForUserId ? _userService.GetUserById(showForUserId.GetValueOrDefault()) : currentUser;
+
             viewModel.Name = currentUser.FriendlyUsername ?? currentUser.Username;
             viewModel.Place = 123;
             viewModel.TotalPoints = currentUser.TotalPoints.GetValueOrDefault();
 
             foreach (User u in _userService.GetTop(5))
             {
-                viewModel.Top5Users.Add(new TopUserViewModel { Name = u.FriendlyUsername??u.Username, TotalPoints=u.TotalPoints.GetValueOrDefault()});
+                viewModel.Top5Users.Add(new TopUserViewModel { Name = u.FriendlyUsername ?? u.Username, TotalPoints = u.TotalPoints.GetValueOrDefault() });
             }
 
-            foreach(Match match in _matchService.GetPreviousMatches(DateTime.Now))
+            foreach (Match match in _matchService.GetPreviousMatches(nowDate))
             {
-                AddMatch(viewModel.PreviousDays, currentUser, match);
+                AddMatch(viewModel.PreviousDays, userToShowFor, match);
             }
 
-            foreach (Match match in _matchService.GetNextMatches(DateTime.Now))
+            foreach (Match match in _matchService.GetNextMatches(nowDate))
             {
-                AddMatch(viewModel.NextDays, currentUser, match);
+                AddMatch(viewModel.NextDays, userToShowFor, match);
+            }
+
+            foreach(Group group in _groupService.GetGroups())
+            {
+                viewModel.Groups.Add(new GroupViewModel {
+                    Id = group.Id,
+                    Name = group.Name
+                });
             }
 
             return viewModel;
@@ -65,6 +83,7 @@ namespace Euro2016Web.ViewModel
                 PointsGained = GetPointsGained(m.Bet.FirstOrDefault(b => b.MatchId == m.Id && b.UserId == currentUser.Id)),
                 Score1 = m.Score1,
                 Score2 = m.Score2
+                
             });
 
             if (!listOfMatches.Any(pd => pd.Date == whenDate))
@@ -81,6 +100,16 @@ namespace Euro2016Web.ViewModel
         private int? GetGuess(Bet b, bool bet1)
         {
             return b == null ? null : bet1 ? b.Score1 : b.Score2;
+        }
+
+        public void UpdateScore(int matchId, string userName, bool isOne, int value)
+        {
+            _betService.UpdateOrCreateBet(matchId, userName, isOne, value);
+        }
+
+        public void UpdateName(string userName, string name)
+        {
+            _userService.UpdateName(userName, name);
         }
     }
 }

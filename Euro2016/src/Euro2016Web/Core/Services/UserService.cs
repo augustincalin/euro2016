@@ -34,9 +34,25 @@ namespace Euro2016Web.Core.Services
             return _userRepository.GetAll().OrderByDescending(u => u.TotalPoints).Take(number).ToList();
         }
 
+        public User GetUserById(int id)
+        {
+            return _userRepository.Get(id);
+        }
+
         public User GetUserByName(string username)
         {
             return _userRepository.SingleOrDefault(u => u.Username == username);
+        }
+
+        public User UpdateName(string userName, string name)
+        {
+            User user = GetUserByName(userName);
+            if(null != user)
+            {
+                user.FriendlyUsername = name;
+                _userRepository.Save();
+            }
+            return user;
         }
     }
 }

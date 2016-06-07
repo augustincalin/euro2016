@@ -33,15 +33,20 @@ namespace Euro2016Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            var connection = @"Server=AP525795\SQL2014;Database=EURO2016DB;Trusted_Connection=True;";
+            var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
             services.AddDbContext<EURO2016DBContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<DbContext, EURO2016DBContext>();
             services.AddScoped<IMatchRepository, EfMatchRepository>();
+            services.AddScoped<IRepository<Bet>, EfRepository<Bet>>();
+            services.AddScoped<IRepository<Group>, EfRepository<Group>>();
             services.AddScoped<IRepository<User>, EfRepository<User>>();
             services.AddScoped<IRepository<Match>, EfRepository<Match>>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IMatchService, MatchService>();
+            services.AddScoped<IBetService, BetService>();
+
             services.AddScoped<IHomeService, HomeService>();
             services.AddMvc();
         }

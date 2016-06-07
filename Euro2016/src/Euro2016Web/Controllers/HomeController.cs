@@ -20,7 +20,19 @@ namespace Euro2016Web.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return new ObjectResult(_homeService.GetHomeViewModel(User.Identity.Name));
+            return new ObjectResult(_homeService.GetHomeViewModel(User.Identity.Name, null));
+        }
+        [HttpPost("UpdateScore")]
+        public IActionResult UpdateScore([FromBody]BetPostViewModel data)
+        {
+            _homeService.UpdateScore(data.MatchId, User.Identity.Name, data.IsOne, data.Value);
+            return Ok();
+        }
+        [HttpPost("UpdateName")]
+        public IActionResult UpdateName([FromBody]NamePostViewModel data)
+        {
+            _homeService.UpdateName(User.Identity.Name, data.Name);
+            return Ok();
         }
     }
 }

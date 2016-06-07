@@ -124,11 +124,12 @@
     width: 80px;
 }
 
-.your-name{
-    font-size:24px;
-    font-weight:bold;
-    width:160px;
+.your-name {
+    font-size: 24px;
+    font-weight: bold;
+    width: 160px;
 }
+
 .day {
     border-bottom: 1px solid silver;
 }
@@ -168,3 +169,73 @@
     }
 }
 
+.coin {
+    background-image: url('../images/coin-24.png');
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.coin-small {
+    background-image: url('../images/coin-16.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+md-toast.md-success-toast-theme {
+    .md-toast-content {
+        background-color: green;
+    }
+}
+md-toast.md-error-toast-theme {
+    .md-toast-content {
+        background-color: red;
+    }
+}
+.viewTop{
+    width:50px;
+}
+.subtitle{
+    margin:50px 0 5px 30px;
+}
+
+.button-subtitle{
+    margin-left:30px;
+}
+
+.normal-link{
+    &:link{
+        text-decoration:none;
+    }
+
+    &:active{
+        text-decoration:none;
+    }
+
+    &:hover{
+        text-decoration:underline;
+    }
+}
+
+.para{
+    margin:0 5px 5px 30px;
+}
+
+.euro{
+    background-image: url('../images/euro-2016.png');
+    width: 142px;
+    height: 200px;
+    margin-top:190px;
+    margin-right:100px;
+}
+
+.title{
+    color:white;
+    margin-left:50px;
+}
+
+.match-separator {
+    border-bottom: 1px dashed silver;
+    margin-bottom:10px;
+}
