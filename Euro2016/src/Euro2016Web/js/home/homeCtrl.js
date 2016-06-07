@@ -1,12 +1,12 @@
 ﻿module.exports = function (angApp) {
-    angApp.controller('homeCtrl', function ($scope, homeService, $timeout, $mdToast) {
+    angApp.controller('homeCtrl', function ($scope, homeService, $timeout, $mdToast, $anchorScroll, $location) {
 
         $scope.isDataLoaded = false;
 
         homeService.getHomeData().then(
             function (response) {
                 $scope.vm = response.data;
-                $timeout(function () { $scope.isDataLoaded = true; }, 2000);
+                $timeout(function () { $scope.isDataLoaded = true; $anchorScroll('nextMatches'); }, 2000);
             },
             function (response) {
                 console.log(response);
@@ -38,11 +38,15 @@
 
         };
 
-        showNotification = function (message, theme) {
+        var showNotification = function (message, theme) {
             $mdToast.show(
               $mdToast.simple().textContent(message).hideDelay(500).theme(theme)
             );
         };
+
+        $timeout(function() {
+            
+        });
 
     });
 };
