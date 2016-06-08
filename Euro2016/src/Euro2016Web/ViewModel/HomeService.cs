@@ -102,9 +102,10 @@ namespace Euro2016Web.ViewModel
             return b == null ? null : bet1 ? b.Score1 : b.Score2;
         }
 
-        public void UpdateScore(int matchId, string userName, bool isOne, int value)
+        public bool UpdateScore(int matchId, string userName, bool isOne, int value)
         {
-            _betService.UpdateOrCreateBet(matchId, userName, isOne, value);
+            Bet bet = _betService.UpdateOrCreateBet(matchId, userName, isOne, value);
+            return bet != null;
         }
 
         public void UpdateName(string userName, string name)

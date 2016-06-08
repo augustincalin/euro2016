@@ -9,16 +9,16 @@
             display: none !important;
         }
     </style>
-
 </head>
 
 <body layout="column" ng-controller="homeCtrl" ng-cloak>
+
     <div id="loader" ng-hide="isDataLoaded" flex layout="row" layout-align="center center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <md-toolbar layout="row" class="md-tall" layout-align="start center">
-        <h1 flex class="title">Commerzbank EURO 2016</h1>
 
+    <md-toolbar layout="row" class="md-tall" layout-align="start center">
+        <h1 flex class="title" ng-click="gotoHome()">Commerzbank EURO 2016</h1>
         <span flex="none" class="euro"></span>
     </md-toolbar>
 
@@ -43,151 +43,21 @@
                 <ul>
                     <li ng-repeat="user in vm.Top5Users">{{$index+1}}. {{user.Name}} - {{user.TotalPoints}} <span class="coin-small"></span></li>
                 </ul>
-                <md-button class="md-raised md-primary viewTop">View Top</md-button>
+                <md-button class="md-raised md-primary viewTop" ng-click="gotoTop()">View Top</md-button>
 
                 <h3>Groups</h3>
                 <ul>
-                    <li ng-repeat="group in vm.Groups"><a href="sss" class="normal-link">{{group.Name}}</a></li>
+                    <li ng-repeat="group in vm.Groups"><a href="" ng-click="gotoGroup(group.Id)" class="normal-link">{{group.Name}}</a></li>
                 </ul>
-
-                <h3>How?</h3>
-                <p>If you guess the result (1,X,2) you get 3<span class="coin-small"></span></p>
-                <p>If you guess the number of goals a team scores you receive 1<span class="coin-small"></span></p>
-                <h4>Example</h4>
-                <p>Let's suppose Denmark is playing against Greece and you estimate Denmark - Greece will be 2:1</p>
-                <p>If the real score is...</p>
-                <h5>Denmark - Greece 2:1</h5>
-                <p>In this case you will get: 3<span class="coin-small"></span> for identifying the winner + 1<span class="coin-small"></span> for guessing the number of goals Denmark scores + 1<span class="coin-small"></span> for guessing the number of goals Greece scores. That's 5<span class="coin-small"></span> in total.</p>
-                <h5>Denmark - Greece 2:0</h5>
-                <p>You will receive 3<span class="coin-small"></span> for correctly identifying the winner + 1<span class="coin-small"></span> point for guessing the number of goals Denmark scores. Total: 4<span class="coin-small"></span></p>
-                <h5>Denmark - Greece 1:1</h5>
-                <p>You will receive only 1<span class="coin-small"></span> for guessing the number of goals Greece scores.</p>
-                <h5>Denmark - Greece 5:2</h5>
-                <p>In this case you will receive 3<span class="coin-small"></span> for guessing the winner.</p>
-                <h5>Denmark - Greece 1:2</h5>
-                <p>In this case you will receive 0<span class="coin-small"></span> You guessed nothing, you receive nothing!</p>
             </md-content>
-
+            <md-button class="md-primary" ng-click="gotoHelp();" >How this works?</md-button>
         </md-sidenav>
 
-        <md-content flex id="content">
-            <form name="matchesForm">
-                <div id="matches" flex layout="column">
-                    <h1 class="text-align-center">Previous matches</h1>
-                    <div flex layout="column" ng-repeat="day in vm.PreviousDays" style="opacity: 0.5">
-                        <div class="day" layout="row">
-                            <div flex="none">
-                                <p class="md-caption">{{day.Date|date:"dd.MM.yyyy"}}</p>
-                            </div>
-                        </div>
-                        <div flex layout="column" ng-repeat="match in day.Matches">
+        <md-content flex id="content" ui-view>
 
-                            <div layout="row">
-                                <div flex layout="row" layout-align="end center">
-                                    <h1 class="md-title left-text">{{match.Team1}}</h1>
-                                    <span class="flag flag-{{match.Acronym1}}"></span>
-                                </div>
-                                <div flex="none" layout="row" class="vs" layout-align="center center">
-                                    <h1 class="md-caption">vs</h1>
-                                </div>
-                                <div flex layout="row" layout-align="start center">
-                                    <span class="flag flag-{{match.Acronym2}}"></span>
-                                    <h1 class="md-title right-text">{{match.Team2}}</h1>
-                                </div>
-                            </div>
-                            <div layout="row">
-                                <div flex layout="row" layout-align="end start">
-                                    <h1 class="md-display-1 left-text no-margin">{{match.Score1}}</h1>
-                                </div>
-                                <div flex="none" layout="row" class="vs" layout-align="center center">
-
-                                </div>
-                                <div flex layout="row">
-                                    <h1 class="md-display-1 right-text no-margin">{{match.Score2}}</h1>
-                                </div>
-                            </div>
-
-                            <div layout="column">
-                                <div layout="row">
-                                    <div flex layout="row" layout-align="end start">
-                                        <md-input-container class="md-block your-score" flex="none">
-                                            <label>your score</label>
-                                            <input type="text" disabled ng-model="match.Guess1" class="md-title text-align-right"/>
-                                        </md-input-container>
-                                    </div>
-                                    <div flex="none" class="vs"></div>
-                                    <div flex class="text-align-left">
-                                        <md-input-container class="md-block your-score" flex="none">
-                                            <label>your score</label>
-                                            <input type="text" disabled ng-model="match.Guess2" class="md-title"/>
-                                        </md-input-container>
-                                    </div>
-                                </div>
-                                <div flex layout="row" layout-align="center center">
-                                    <p class="md-caption no-margin">You won {{match.PointsGained}}<span class="coin-small"></span> for this match.
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div flex class="match-separator" ng-show="!$last">&nbsp;</div>
-                        </div>
-                    </div>
-
-                    <h1 id="nextMatches" class="text-align-center" style="margin-top:100px">Next matches</h1>
-                    <div flex layout="column" ng-repeat="day in vm.NextDays">
-                        <div class="day" layout="row">
-                            <div flex="none">
-                                <p class="md-caption">{{day.Date|date:"dd.MM.yyyy"}}</p>
-                            </div>
-                        </div>
-                        <div flex layout="column" ng-repeat="match in day.Matches">
-                            <div flex layout="row" layout-align="center center">
-                                <p class="md-caption">{{match.Date|date:"HH:mm"}}</p>
-                            </div>
-                            <div layout="row">
-                                <div flex layout="row" layout-align="end center">
-                                    <h1 class="md-title left-text">{{match.Team1}}</h1>
-                                    <span class="flag flag-{{match.Acronym1}}"></span>
-                                </div>
-                                <div flex="none" layout="row" class="vs" layout-align="center center">
-                                    <h1 class="md-caption">vs</h1>
-                                </div>
-                                <div flex layout="row" layout-align="start center">
-                                    <span class="flag flag-{{match.Acronym2}}"></span>
-                                    <h1 class="md-title right-text">{{match.Team2}}</h1>
-                                </div>
-                            </div>
-                            <div layout="column">
-                                <div layout="row">
-                                    <div flex layout="row" layout-align="end start">
-                                        <md-input-container class="md-block your-score" flex="none">
-                                            <label>your score</label>
-                                            <input type="text" step="any" name="score_{{match.Id}}_1" ng-model="match.Guess1" ng-pattern="/^\d+$/" class="md-title text-align-right" ng-change="scoreChange(match.Id, true, match.Guess1)" />
-                                            <div ng-messages="matchesForm['score_' + match.Id + '_1'].$error" multiple md-auto-hide="false">
-                                                <div ng-message="pattern">Not a number!</div>
-                                            </div>
-                                        </md-input-container>
-                                    </div>
-                                    <div flex="none" class="vs"></div>
-                                    <div flex class="text-align-left">
-                                        <md-input-container class="md-block your-score" flex="none">
-                                            <label>your score</label>
-                                            <input type="text" step="any" name="score_{{match.Id}}_2" ng-model="match.Guess2" ng-pattern="/^\d+$/" class="md-title" ng-change="scoreChange(match.Id, false, match.Guess2)" />
-                                            <div ng-messages="matchesForm['score_' + match.Id + '_2'].$error" multiple md-auto-hide="false">
-                                                <div ng-message="pattern">Not a number!</div>
-                                            </div>
-                                        </md-input-container>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </form>
         </md-content>
     </div>
+    <script src="js/vendor.bundle.js"></script>
     <script src="js/bundle.js"></script>
 </body>
 </html>

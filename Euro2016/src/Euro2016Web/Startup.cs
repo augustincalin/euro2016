@@ -33,8 +33,8 @@ namespace Euro2016Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            //var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
-            var connection = @"Server=AP525795\SQL2014;Database=EURO2016DB;Trusted_Connection=True;";
+            var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
+            //var connection = @"Server=AP525795\SQL2014;Database=EURO2016DB;Trusted_Connection=True;";
             services.AddDbContext<EURO2016DBContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<DbContext, EURO2016DBContext>();

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Euro2016Web.Controllers
@@ -25,8 +26,7 @@ namespace Euro2016Web.Controllers
         [HttpPost("UpdateScore")]
         public IActionResult UpdateScore([FromBody]BetPostViewModel data)
         {
-            _homeService.UpdateScore(data.MatchId, User.Identity.Name, data.IsOne, data.Value);
-            return Ok();
+            return _homeService.UpdateScore(data.MatchId, User.Identity.Name, data.IsOne, data.Value) ? Ok() : new StatusCodeResult(402);
         }
         [HttpPost("UpdateName")]
         public IActionResult UpdateName([FromBody]NamePostViewModel data)

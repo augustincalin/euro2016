@@ -12,17 +12,20 @@ namespace Euro2016Web.Core.Services
     {
         protected readonly IRepository<Bet> _betRepository;
         protected readonly IUserService _userService;
-        public BetService(IRepository<Bet> betRepository, IUserService userService)
+        protected readonly IMatchService _matchService;
+        public BetService(IRepository<Bet> betRepository, IUserService userService, IMatchService matchService)
         {
             _betRepository = betRepository;
             _userService = userService;
+            _matchService = matchService;
         }
         public Bet UpdateOrCreateBet(int matchId, string userName, bool isOne, int value)
         {
             User user = _userService.GetUserByName(userName);
+            
             Bet existingBet = null;
 
-            if (null != user)
+            if (null != user && _matchService.IsMatchBetable(matchId, new DateTime(2016, 6, 15)))
             {
                 existingBet = _betRepository.Find(b => b.MatchId == matchId && b.UserId == user.Id).FirstOrDefault();
 

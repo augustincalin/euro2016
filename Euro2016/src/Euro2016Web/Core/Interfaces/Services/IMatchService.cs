@@ -10,6 +10,7 @@ namespace Euro2016Web.Core.Interfaces.Services
     {
         IEnumerable<Match> GetPreviousMatches(DateTime dateTime);
         IEnumerable<Match> GetNextMatches(DateTime dateTime);
+        bool IsMatchBetable(int matchId, DateTime dateTime);
 
     }
 }

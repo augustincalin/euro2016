@@ -25,5 +25,12 @@ namespace Euro2016Web.Core.Services
         {
             return _matchRepository.GetPreviousMatches(dateTime);
         }
+
+        public bool IsMatchBetable(int matchId, DateTime dateTime)
+        {
+            Match matchToBetTo = _matchRepository.Find(m => m.Id == matchId && m.StartDate >= dateTime).SingleOrDefault();
+            return null != matchToBetTo;
+
+        }
     }
 }

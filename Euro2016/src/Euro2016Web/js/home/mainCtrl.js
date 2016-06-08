@@ -1,5 +1,5 @@
 ﻿module.exports = function (angApp) {
-    angApp.controller('homeCtrl', function ($scope, homeService, $timeout, $mdToast, $anchorScroll, $location, $state) {
+    angApp.controller('mainCtrl', function ($scope, homeService, $timeout, $mdToast, $anchorScroll, $location, $state) {
 
         $scope.isDataLoaded = false;
 
