@@ -36,7 +36,7 @@ namespace Euro2016Web.Core.Services
 
         public User GetUserById(int id)
         {
-            return _userRepository.Get(id);
+            return _userRepository.SingleOrDefault(u => u.Id == id);
         }
 
         public User GetUserByName(string username)

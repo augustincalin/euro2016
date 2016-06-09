@@ -18,10 +18,11 @@
             })
             .state('top', {
                 url: '/top',
-                template: require('./top/top.html')
+                template: require('./top/top.html'),
+                controller: 'topCtrl'
             })
             .state('user', {
-                url: '/user',
+                url: '/user/:id',
                 template: require('./user/user.html')
             })
             .state('group', {

@@ -1,5 +1,7 @@
-﻿<md-virtual-repeat-container id="vertical-container">
-    <div md-virtual-repeat="item in users" md-on-demand class="repeated-item" flex>
-        {{item}}
-    </div>
-</md-virtual-repeat-container>
+﻿<div flex layout="row">
+    <md-content layout-padding>
+        <ul>
+            <li ng-repeat="user in users">{{$index + 1}}. <a ui-sref="user({id:user.Id})">{{user.FriendlyUsername}}</a> {{user.TotalPoints}}<span class="coin-small"></span></li>
+        </ul>
+    </md-content>
+</div>

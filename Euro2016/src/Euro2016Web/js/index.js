@@ -16,5 +16,7 @@ app.run(function ($log) {
     $log.debug('app started...');
 });
 require('./home')(app);
+require('./top')(app);
+require('./user')(app);
 require('./config')(app, angular);
 

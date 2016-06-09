@@ -1,8 +1,8 @@
 ﻿module.exports = function (angApp) {
-    angApp.service('topService', function ($http, $q) {
-        this.getTopData = function () {
+    angApp.service('userService', function ($http, $q) {
+        this.getTopData = function (userId) {
             var deferred = $q.defer();
-            $http({ method: 'GET', url: '/api/user/gettop' }).then(
+            $http({ method: 'GET', url: '/api/user/getuser', params: {id: userId}}).then(
                 function (response) {
                     deferred.resolve(response);
                 },
