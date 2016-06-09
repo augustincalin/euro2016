@@ -1,1 +1,5 @@
-﻿<h1>Not yet implemented...</h1>
+﻿<md-virtual-repeat-container id="vertical-container">
+    <div md-virtual-repeat="item in users" md-on-demand class="repeated-item" flex>
+        {{item}}
+    </div>
+</md-virtual-repeat-container>
