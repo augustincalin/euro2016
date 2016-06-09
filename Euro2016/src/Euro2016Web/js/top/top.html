@@ -1,4 +1,5 @@
-﻿<div flex layout="row">
+﻿<h1 class="text-align-center">This is the top of all users</h1>
+<div flex layout="row">
     <md-content layout-padding>
         <ul>
             <li ng-repeat="user in users">{{$index + 1}}. <a ui-sref="user({id:user.Id})">{{user.FriendlyUsername}}</a> {{user.TotalPoints}}<span class="coin-small"></span></li>

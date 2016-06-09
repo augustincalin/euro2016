@@ -41,7 +41,7 @@
                 </div>
                 <h3>Top 5</h3>
                 <ul>
-                    <li ng-repeat="user in vm.Top5Users">{{$index+1}}. {{user.Name}} - {{user.TotalPoints}} <span class="coin-small"></span></li>
+                    <li ng-repeat="user in vm.Top5Users">{{$index+1}}. <a ui-sref="user({id:user.Id})">{{user.Name}}</a> - {{user.TotalPoints}} <span class="coin-small"></span></li>
                 </ul>
                 <md-button class="md-raised md-primary viewTop" ng-click="gotoTop()">View Top</md-button>
 
