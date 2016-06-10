@@ -9,7 +9,7 @@ Client side
 - [ ] webpack bundling for production
 - [ ] top must implement md virtual scroll
 - [ ] top must look nicer
-- [x] html 5 for states
+- [ ] html 5 for states
 - [ ] ...
 
 Server side
