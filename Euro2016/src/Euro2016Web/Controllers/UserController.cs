@@ -25,7 +25,7 @@ namespace Euro2016Web.Controllers
         [HttpGet("GetTop")]
         public IActionResult GetTop()
         {
-            return new ObjectResult(_userService.GetTop(10));
+            return new ObjectResult(_userService.GetTop(1000));
         }
 
         [HttpGet("GetUser/{id}")]

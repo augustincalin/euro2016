@@ -33,8 +33,9 @@ namespace Euro2016Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
+            //var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
             //var connection = @"Server=AP525795\SQL2014;Database=EURO2016DB;Trusted_Connection=True;";
+            var connection = @"Persist Security Info=False;User ID=sa;Password=safz_edekk1;Initial Catalog=EURO2016DB;Data Source=ap525795\sql2014;";
             services.AddDbContext<EURO2016DBContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<DbContext, EURO2016DBContext>();
@@ -58,8 +59,11 @@ namespace Euro2016Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.UseDefaultFiles();
+
             app.UseStaticFiles();
             app.UseMvc();
+
         }
     }
 }

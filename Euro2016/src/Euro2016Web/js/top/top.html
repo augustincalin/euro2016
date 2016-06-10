@@ -1,8 +1,8 @@
-﻿<h1 class="text-align-center">This is the top of all users</h1>
+﻿<h1 class="text-align-center">Top all players</h1>
 <div flex layout="row">
     <md-content layout-padding>
-        <ul>
-            <li ng-repeat="user in users">{{$index + 1}}. <a ui-sref="user({id:user.Id})">{{user.FriendlyUsername}}</a> {{user.TotalPoints}}<span class="coin-small"></span></li>
+        <ul style="list-style-type:none">
+            <li ng-repeat="user in users">{{$index + 1}}. <a ui-sref="user({id:user.Id})">{{user.FriendlyUsername||user.Username}}</a> {{user.TotalPoints}}<span class="coin-small"></span></li>
         </ul>
     </md-content>
 </div>

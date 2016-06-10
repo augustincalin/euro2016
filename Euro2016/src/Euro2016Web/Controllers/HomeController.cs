@@ -21,7 +21,7 @@ namespace Euro2016Web.Controllers
         [HttpPost("UpdateScore")]
         public IActionResult UpdateScore([FromBody]BetPostViewModel data)
         {
-            return _homeService.UpdateScore(data.MatchId, User.Identity.Name, data.IsOne, data.Value) ? Ok() : new StatusCodeResult(402);
+            return _homeService.UpdateScore(data.MatchId, User.Identity.Name, data.IsOne, data.Value) ? Ok() : new StatusCodeResult(402); //This is for Alexander ;)
         }
         [HttpPost("UpdateName")]
         public IActionResult UpdateName([FromBody]NamePostViewModel data)

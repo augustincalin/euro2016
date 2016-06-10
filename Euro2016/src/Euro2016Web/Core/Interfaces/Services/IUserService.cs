@@ -13,5 +13,6 @@ namespace Euro2016Web.Core.Interfaces.Services
         ICollection<User> GetTop(int number);
         User Add(string username);
         User UpdateName(string userName, string name);
+        int GetUserPosition(int userId);
     }
 }

@@ -25,7 +25,7 @@ namespace Euro2016Web.Core.Services
             
             Bet existingBet = null;
 
-            if (null != user && _matchService.IsMatchBetable(matchId, new DateTime(2016, 6, 15)))
+            if (null != user && _matchService.IsMatchBetable(matchId, DateTime.Now))
             {
                 existingBet = _betRepository.Find(b => b.MatchId == matchId && b.UserId == user.Id).FirstOrDefault();
 

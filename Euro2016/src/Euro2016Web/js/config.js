@@ -1,9 +1,12 @@
 ﻿module.exports = function (angApp, angular) {
     angApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
-        //$locationProvider.html5Mode(true);
         //$locationProvider.hashPrefix('!');
 
         $urlRouterProvider.otherwise('/home');
+        //$locationProvider.html5Mode({
+        //    enabled: true,
+        //    requireBase: false
+        //});
 
         $stateProvider
             .state('home', {

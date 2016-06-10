@@ -18,8 +18,8 @@ namespace Euro2016Web.ViewModel
         }
         public UserViewModel GetUserViewModel(int userId)
         {
-            //DateTime nowDate = DateTime.Now;
-            DateTime nowDate = new DateTime(2016, 6, 16);
+            DateTime nowDate = DateTime.Now;
+            //DateTime nowDate = new DateTime(2016, 6, 16);
             UserViewModel viewModel = new UserViewModel();
             User currentUser = _userService.GetUserById(userId);
 

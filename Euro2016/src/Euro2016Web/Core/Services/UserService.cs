@@ -54,5 +54,10 @@ namespace Euro2016Web.Core.Services
             }
             return user;
         }
+
+        public int GetUserPosition(int userId)
+        {
+            return _userRepository.GetAll().OrderByDescending(u=>u.TotalPoints).TakeWhile(u => u.Id != userId).Count();
+        }
     }
 }

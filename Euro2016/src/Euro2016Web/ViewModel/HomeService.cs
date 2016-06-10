@@ -9,10 +9,10 @@ namespace Euro2016Web.ViewModel
 {
     public class HomeService : IHomeService
     {
-        protected readonly IUserService _userService;
-        protected readonly IMatchService _matchService;
-        protected readonly IBetService _betService;
-        protected readonly IGroupService _groupService;
+        private readonly IUserService _userService;
+        private readonly IMatchService _matchService;
+        private readonly IBetService _betService;
+        private readonly IGroupService _groupService;
         public HomeService(IUserService userService, IMatchService matchService, IBetService betService, IGroupService groupService)
         {
             _userService = userService;
@@ -22,8 +22,8 @@ namespace Euro2016Web.ViewModel
         }
         public HomeViewModel GetHomeViewModel(string currentUsername, int? showForUserId)
         {
-            //DateTime nowDate = DateTime.Now;
-            DateTime nowDate = new DateTime(2016, 6,16);
+            DateTime nowDate = DateTime.Now;
+            //DateTime nowDate = new DateTime(2016, 6,16);
             HomeViewModel viewModel = new HomeViewModel();
             User currentUser = _userService.GetUserByName(currentUsername);
             User userToShowFor = null;
@@ -35,7 +35,7 @@ namespace Euro2016Web.ViewModel
             userToShowFor = null != showForUserId ? _userService.GetUserById(showForUserId.GetValueOrDefault()) : currentUser;
 
             viewModel.Name = currentUser.FriendlyUsername ?? currentUser.Username;
-            viewModel.Place = 123;
+            viewModel.Place = _userService.GetUserPosition(currentUser.Id);
             viewModel.TotalPoints = currentUser.TotalPoints.GetValueOrDefault();
 
             foreach (User u in _userService.GetTop(5))
