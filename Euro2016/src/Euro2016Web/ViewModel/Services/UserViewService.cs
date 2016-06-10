@@ -16,16 +16,16 @@ namespace Euro2016Web.ViewModel
             _userService = userService;
             _matchService = matchService;
         }
-        public UserViewModel GetUserViewModel(int userId)
+        public UserViewModel GetUserViewModel(int? userId, string userName)
         {
             DateTime nowDate = DateTime.Now;
             //DateTime nowDate = new DateTime(2016, 6, 16);
             UserViewModel viewModel = new UserViewModel();
-            User currentUser = _userService.GetUserById(userId);
+            User currentUser = userId.HasValue ? _userService.GetUserById(userId.Value) : _userService.GetUserByName(userName);
 
 
             viewModel.Name = currentUser.FriendlyUsername ?? currentUser.Username;
-            viewModel.Place = 123;
+            viewModel.Place = _userService.GetUserPosition(currentUser.Id);
             viewModel.TotalPoints = currentUser.TotalPoints.GetValueOrDefault();
 
             foreach (Match match in _matchService.GetPreviousMatches(nowDate))

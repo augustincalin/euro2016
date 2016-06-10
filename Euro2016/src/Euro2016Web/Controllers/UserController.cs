@@ -31,14 +31,7 @@ namespace Euro2016Web.Controllers
         [HttpGet("GetUser/{id?}")]
         public IActionResult GetUser([FromQuery]int? id)
         {
-            if(null == id)
-            {
-
-            } else
-            {
-
-            }
-            return new ObjectResult(_userViewService.GetUserViewModel(id.GetValueOrDefault()));
+            return new ObjectResult(_userViewService.GetUserViewModel(id, User.Identity.Name));
         }
 
 

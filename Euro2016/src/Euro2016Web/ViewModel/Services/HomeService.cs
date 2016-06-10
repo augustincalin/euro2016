@@ -23,16 +23,14 @@ namespace Euro2016Web.ViewModel
         public HomeViewModel GetHomeViewModel(string currentUsername, int? showForUserId)
         {
             DateTime nowDate = DateTime.Now;
-            //DateTime nowDate = new DateTime(2016, 6,16);
+
             HomeViewModel viewModel = new HomeViewModel();
-            User currentUser = _userService.GetUserByName(currentUsername);
-            User userToShowFor = null;
+
+            User currentUser = _userService.GetUserByName(currentUsername);           
             if (null == currentUser)
             {
                 currentUser = _userService.Add(currentUsername);
             }
-
-            userToShowFor = null != showForUserId ? _userService.GetUserById(showForUserId.GetValueOrDefault()) : currentUser;
 
             viewModel.Name = currentUser.FriendlyUsername ?? currentUser.Username;
             viewModel.Place = _userService.GetUserPosition(currentUser.Id);

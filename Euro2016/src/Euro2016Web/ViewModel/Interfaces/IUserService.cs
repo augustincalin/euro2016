@@ -7,7 +7,7 @@ namespace Euro2016Web.ViewModel
 {
     public interface IUserViewService
     {
-        UserViewModel GetUserViewModel(int userId);
+        UserViewModel GetUserViewModel(int? userId, string userName);
 
     }
 }

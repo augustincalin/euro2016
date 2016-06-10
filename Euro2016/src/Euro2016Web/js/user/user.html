@@ -1,6 +1,6 @@
 ﻿<div id="matches" flex layout="column">
-    <h1 class="text-align-center">{{vm2.Name}} past bets</h1>
-    <div flex layout="column" ng-repeat="day in vm2.PreviousDays">
+    <h1 class="text-align-center">{{vm.Name}} past bets</h1>
+    <div flex layout="column" ng-repeat="day in vm.PreviousDays">
         <div layout="row">
             <div flex="none">
             </div>
@@ -50,6 +50,56 @@
             </div>
         </div>
     </div>
+    <h1 class="text-align-center">{{vm.Name}} next bets</h1>
+    <div flex layout="column" ng-repeat="day in vm.NextDays">
+        <div layout="row">
+            <div flex="none">
+            </div>
+        </div>
+        <div flex layout="column" ng-repeat="match in day.Matches">
 
+            <div layout="row">
+                <div flex layout="row" layout-align="end center">
+                    <h1 class="md-title left-text">{{match.Team1}}</h1>
+                    <span class="flag flag-{{match.Acronym1}}"></span>
+                </div>
+                <div flex="none" layout="row" class="vs" layout-align="center center">
+                    <h1 class="md-caption">vs</h1>
+                </div>
+                <div flex layout="row" layout-align="start center">
+                    <span class="flag flag-{{match.Acronym2}}"></span>
+                    <h1 class="md-title right-text">{{match.Team2}}</h1>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex layout="row" layout-align="end start">
+                    <h1 class="md-display-1 left-text no-margin">{{match.Score1}}</h1>
+                </div>
+                <div flex="none" layout="row" class="vs" layout-align="center center">
+
+                </div>
+                <div flex layout="row">
+                    <h1 class="md-display-1 right-text no-margin">{{match.Score2}}</h1>
+                </div>
+            </div>
+            <p class="md-caption text-align-center">
+                his score
+            </p>
+            <div layout="column">
+                <div layout="row">
+                    <div flex layout="row" layout-align="end start">
+                        <div>{{match.Guess1}}</div>
+                    </div>
+                    <div flex="none" class="vs"></div>
+                    <div flex class="text-align-left">
+                        <div>{{match.Guess2}}</div>
+                    </div>
+                </div>
+                <div flex layout="row" layout-align="center center">
+                    <p class="md-caption no-margin">He/She won {{match.PointsGained||'0,-'}}<span class="coin-small"></span> for this match.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
