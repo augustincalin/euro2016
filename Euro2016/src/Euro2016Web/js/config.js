@@ -26,7 +26,8 @@
             })
             .state('user', {
                 url: '/user/:id',
-                template: require('./user/user.html')
+                template: require('./user/user.html'),
+                controller:'userCtrl'
             })
             .state('group', {
                 url: '/group',

@@ -40,7 +40,7 @@ namespace Euro2016Web.ViewModel
 
             foreach (User u in _userService.GetTop(5))
             {
-                viewModel.Top5Users.Add(new TopUserViewModel { Name = u.FriendlyUsername ?? u.Username, TotalPoints = u.TotalPoints.GetValueOrDefault() });
+                viewModel.Top5Users.Add(new TopUserViewModel {Id = u.Id, Name = u.FriendlyUsername ?? u.Username, TotalPoints = u.TotalPoints.GetValueOrDefault() });
             }
 
             foreach (Match match in _matchService.GetPreviousMatches(nowDate))
