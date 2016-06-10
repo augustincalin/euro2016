@@ -11,10 +11,13 @@ namespace Euro2016Web.ViewModel
         public int TotalPoints { get; set; }
         public int Place { get; set; }
         public List<DayViewModel> PreviousDays { get; set; }
+        public List<DayViewModel> NextDays { get; set; }
+
 
         public UserViewModel()
         {
             PreviousDays = new List<DayViewModel>();
+            NextDays = new List<DayViewModel>();
         }
     }
 }

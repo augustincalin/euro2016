@@ -28,10 +28,17 @@ namespace Euro2016Web.Controllers
             return new ObjectResult(_userService.GetTop(1000));
         }
 
-        [HttpGet("GetUser/{id}")]
-        public IActionResult GetUser(int id)
+        [HttpGet("GetUser/{id?}")]
+        public IActionResult GetUser(int? id)
         {
-            return new ObjectResult(_userViewService.GetUserViewModel(id));
+            if(null == id)
+            {
+
+            } else
+            {
+
+            }
+            return new ObjectResult(_userViewService.GetUserViewModel(id.GetValueOrDefault()));
         }
 
 

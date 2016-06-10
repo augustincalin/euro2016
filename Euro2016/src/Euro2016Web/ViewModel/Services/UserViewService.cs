@@ -33,6 +33,11 @@ namespace Euro2016Web.ViewModel
                 AddMatch(viewModel.PreviousDays, currentUser, match);
             }
 
+            foreach (Match match in _matchService.GetNextMatches(nowDate))
+            {
+                AddMatch(viewModel.NextDays, currentUser, match);
+            }
+
 
             return viewModel;
         }
