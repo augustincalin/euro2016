@@ -45,7 +45,8 @@ namespace Euro2016Web.ViewModel
             {
                 viewModel.Groups.Add(new GroupViewModel {
                     Id = group.Id,
-                    Name = group.Name
+                    Name = group.Name,
+                    ExternalGroupId = group.ExternalGroupId
                 });
             }
 

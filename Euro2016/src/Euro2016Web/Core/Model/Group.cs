@@ -12,6 +12,7 @@ namespace Euro2016Web.Core.Model
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ExternalGroupId { get; set; }
 
         public virtual ICollection<Team> Team { get; set; }
     }

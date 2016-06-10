@@ -26,8 +26,8 @@
 
         <md-sidenav md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop md-whiteframe="4" md-sidenav="left" class="md-sidenav-left">
             <md-content layout-padding>
-                <p class="text-align-center hello">Hello, </p>
                 <md-input-container class="md-block your-name" flex="none">
+                    <label>Hello,</label>
                     <input type="text" class="text-align-center" name="name" ng-model="vm.Name" ng-change="nameChange()" />
                 </md-input-container>
 
@@ -43,11 +43,11 @@
                 <ul>
                     <li ng-repeat="user in vm.Top5Users">{{$index+1}}. <a ui-sref="user({id:user.Id})">{{user.Name}}</a> - {{user.TotalPoints}} <span class="coin-small"></span></li>
                 </ul>
-                <md-button class="md-raised md-primary viewTop" ng-click="gotoTop()">Players Top</md-button>
+                <md-button class="md-raised md-primary" style="width:92%" ng-click="gotoTop()">See Players Top</md-button>
 
                 <h3>Groups</h3>
                 <ul>
-                    <li ng-repeat="group in vm.Groups"><a href="" ng-click="gotoGroup(group.Id)" class="normal-link">{{group.Name}}</a></li>
+                    <li ng-repeat="group in vm.Groups"><a href="http://www.uefa.com/uefaeuro/season=2016/standings/round=2000448/group={{group.ExternalGroupId}}/index.html" target="_blank" class="normal-link">{{group.Name}}</a></li>
                 </ul>
             </md-content>
             <md-button class="md-primary" ng-click="gotoHelp();" >How this works?</md-button>
