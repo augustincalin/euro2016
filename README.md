@@ -17,7 +17,7 @@ Client side
 - [ ] ...
 
 Server side
-- [.] service for stealing the classification from official EURO 2016 site for specified Group
+- [x] service for stealing the classification from official EURO 2016 site for specified Group
 - [ ] connection string should be in config
 - [ ] Clean up View Models
 - [ ] When EF Core is ready: split the architecture in several projects
