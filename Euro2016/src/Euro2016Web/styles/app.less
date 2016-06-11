@@ -124,10 +124,11 @@
 }
 
 .your-name {
-    margin-top:50px;
+    margin-top: 50px;
     font-size: 30px;
+
     input {
-        font-size:45px;
+        font-size: 45px;
         height: 50px;
     }
 }
@@ -199,11 +200,13 @@ md-toast.md-error-toast-theme {
 
 .viewTop {
     width: 150px;
-
 }
 
 .subtitle {
     margin: 50px 0 5px 30px;
+    &-nav{
+        margin:30px 0 0 0;
+    }
 }
 
 .button-subtitle {
@@ -211,16 +214,14 @@ md-toast.md-error-toast-theme {
 }
 
 .normal-link {
-    &:link {
-        text-decoration: none;
-    }
-
-    &:active {
+    color: rgb(63,81,181);
+    &:link, &:visited,&:active {
         text-decoration: none;
     }
 
     &:hover {
         text-decoration: underline;
+        
     }
 }
 
@@ -251,17 +252,18 @@ md-toast.md-error-toast-theme {
 }
 
 
-.topView{
-    background-image:url('../images/podium.png');
-    background-position:center center;
-    background-size:10%;
-    background-repeat:no-repeat;
+.topView {
+    background-image: url('../images/podium.png');
+    background-position: center center;
+    background-size: 10%;
+    background-repeat: no-repeat;
 }
 
-.topList{
-    list-style-type:none;
-    margin-left:40px;
-    li{
-        margin:20px 0;
+.topList {
+    list-style-type: none;
+    margin-left: 40px;
+
+    li {
+        margin: 20px 0;
     }
 }

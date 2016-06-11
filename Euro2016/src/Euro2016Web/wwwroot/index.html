@@ -39,18 +39,26 @@
                     <div class="md-headline">{{vm.TotalPoints}} <span class="coin"></span></div>
                     <div class="md-headline">#{{vm.Place}}</div>
                 </div>
-                <h3>Top 5</h3>
-                <ul>
-                    <li ng-repeat="user in vm.Top5Users">{{$index+1}}. <a ui-sref="user({id:user.Id})">{{user.Name}}</a> - {{user.TotalPoints}} <span class="coin-small"></span></li>
+                <h3 class="subtitle-nav text-align-center">Top 5</h3>
+                <ul class="no-margin">
+                    <li ng-repeat="user in vm.Top5Users">
+                        <div layout="row" flex>
+                            <div flex="20" class="text-align-center">{{$index + 1}}.</div>
+                            <div flex="50" class="text-align-left"><a ui-sref="user({id:user.Id})" class="normal-link">{{user.Name}}</a></div>
+                            <div flex="20" class="text-align-right">{{user.TotalPoints}}</div>
+                            <div flex="10" class="text-align-left"><span class="coin-small"></span></div>
+                        </div>
+                        <div flex class="match-separator" ng-show="!$last">&nbsp;</div>
+                    </li>
                 </ul>
                 <md-button class="md-raised md-primary" style="width:92%" ng-click="gotoTop()">See Players Top</md-button>
 
-                <h3>Groups</h3>
-                <ul>
+                <h3 class="subtitle-nav text-align-center">Groups</h3>
+                <ul class="no-margin">
                     <li ng-repeat="group in vm.Groups"><a href="http://www.uefa.com/uefaeuro/season=2016/standings/round=2000448/group={{group.ExternalGroupId}}/index.html" target="_blank" class="normal-link">{{group.Name}}</a></li>
                 </ul>
             </md-content>
-            <md-button class="md-primary" ng-click="gotoHelp();" >How this works?</md-button>
+            <md-button class="md-primary" ng-click="gotoHelp();">How this works?</md-button>
         </md-sidenav>
 
         <md-content flex id="content" ui-view>

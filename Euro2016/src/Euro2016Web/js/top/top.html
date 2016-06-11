@@ -1,8 +1,16 @@
 ﻿<h1 class="text-align-center">Top all players</h1>
 <div flex layout="row" class="topView">
-    <md-content layout-padding>
+    <md-content layout-padding flex>
         <ul class="md-headline topList">
-            <li ng-repeat="user in users">{{$index + 1}}. <a ui-sref="user({id:user.Id})">{{user.FriendlyUsername||user.Username}}</a> {{user.TotalPoints}}<span class="coin-small"></span></li>
+            <li ng-repeat="user in users">
+                <div layout="row" flex>
+                    <div flex="5" class="text-align-center">{{$index + 1}}.</div>
+                    <div flex="30" class="text-align-left"><a ui-sref="user({id:user.Id})" class="normal-link">{{user.FriendlyUsername||user.Username}}</a></div>
+                    <div flex="10" class="text-align-right">{{user.TotalPoints}}</div>
+                    <div flex="5" class="text-align-left"><span class="coin-small"></span></div>
+                </div>
+                <div flex class="match-separator" ng-show="!$last">&nbsp;</div>
+            </li>
         </ul>
     </md-content>
 </div>
