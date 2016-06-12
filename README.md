@@ -13,11 +13,11 @@ Client side
 - [ ] top must implement md virtual scroll
 - [x] top must look nicer
 - [ ] html 5 for states
-- [ ] make webpack load the bundles when needed (with oclazyload)
+- [x] make webpack load the bundles when needed (with oclazyload)
 - [ ] ...
 
 Server side
-- [x] service for stealing the classification from official EURO 2016 site for specified Group
+- [ ] service for stealing the classification from official EURO 2016 site for specified Group
 - [ ] connection string should be in config
 - [ ] Clean up View Models
 - [ ] When EF Core is ready: split the architecture in several projects
