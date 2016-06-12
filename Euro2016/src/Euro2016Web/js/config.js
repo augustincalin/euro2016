@@ -12,8 +12,7 @@
             .state('home', {
                 url: '/home',
                 template: require('./home/home.html'),
-                controller: 'homeCtrl'
-
+                controller: 'homeCtrl',
             })
             .state('help', {
                 url: '/help',

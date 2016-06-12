@@ -14,7 +14,7 @@
         );
 
         $scope.nameChange = function () {
-            homeService.updateName($scope.vm.Name).then(
+            mainService.updateName($scope.vm.Name).then(
                 function (response) {
                     showNotification('Saved!', 'success-toast');
                 },
