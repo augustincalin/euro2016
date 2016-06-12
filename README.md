@@ -14,11 +14,12 @@ Client side
 - [x] top must look nicer
 - [ ] html 5 for states
 - [x] make webpack load the bundles when needed (with oclazyload)
+- [ ] ruight now there is a controller (mainCtrl) "over" another controller (defined by the state): split these
 - [ ] ...
 
 Server side
 - [ ] service for stealing the classification from official EURO 2016 site for specified Group (now implemented as a direct link to official UEFA 2016 site)
-- [ ] connection string should be in config
+- [x] connection string should be in config
 - [ ] Clean up View Models
 - [ ] When EF Core is ready: split the architecture in several DLLs projects
 - [x] **!!!UserViewService and HomeService contains duplicate code; extract it in IUserService!!!**
