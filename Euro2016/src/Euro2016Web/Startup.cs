@@ -12,6 +12,7 @@ using Euro2016Web.Core.Interfaces.Services;
 using Euro2016Web.Core.Model;
 using Euro2016Web.Core.Interfaces;
 using Euro2016Web.Infrastructure.Data;
+using System.Diagnostics;
 
 namespace Euro2016Web
 {
@@ -24,6 +25,11 @@ namespace Euro2016Web
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                //env.UseDeveloperExceptionPage();
+            }
             Configuration = builder.Build();
         }
 
@@ -33,9 +39,13 @@ namespace Euro2016Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
+            //var connection = @"Server=ALIEN\SQLEXPRESS;Database=EURO2016DB;Trusted_Connection=True;";
             //var connection = @"Server=AP525795\SQL2014;Database=EURO2016DB;Trusted_Connection=True;";
             //var connection = @"Persist Security Info=False;User ID=sa;Password=safz_edekk1;Initial Catalog=EURO2016DB;Data Source=ap525795\sql2014;";
+
+            //throw new System.Exception(Configuration["ConnectionString"]);
+            
+            string connection = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<EURO2016DBContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<DbContext, EURO2016DBContext>();
@@ -63,6 +73,12 @@ namespace Euro2016Web
 
             app.UseStaticFiles();
             app.UseMvc();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+            }
 
         }
     }

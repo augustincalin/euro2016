@@ -13,6 +13,8 @@
       "launchBrowser": true,
       "launchUrl": "index.html",
       "environmentVariables": {
+        "sss": "ddd",
+        "plm": "xxx",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }

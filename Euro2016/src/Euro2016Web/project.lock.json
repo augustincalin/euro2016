@@ -141,6 +141,27 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Diagnostics/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.WebUtilities": "1.0.0-rc2-final",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-rc2-24027",
+          "System.Reflection.Extensions": "4.0.1-rc2-24027"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Diagnostics.Abstractions/1.0.0-rc2-final": {
         "type": "package",
         "dependencies": {
@@ -151,6 +172,20 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.AspNetCore.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final",
+          "System.Threading": "4.0.11-rc2-24027"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
         }
       },
       "Microsoft.AspNetCore.Hosting/1.0.0-rc2-final": {
@@ -1109,6 +1144,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc2-final": {
@@ -3888,6 +3935,18 @@
         "lib/netstandard1.3/Microsoft.AspNetCore.DataProtection.Abstractions.xml"
       ]
     },
+    "Microsoft.AspNetCore.Diagnostics/1.0.0-rc2-final": {
+      "sha512": "tkTheYd1QfRQLxMv52leqiUDl5zPrIn/oRjzajITxOcZuKQKRSb8uLLF3cK9JiDoMVh/G6yCeglycDIhk8c0Kw==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNetCore.Diagnostics.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.AspNetCore.Diagnostics.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Diagnostics.dll",
+        "lib/net451/Microsoft.AspNetCore.Diagnostics.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Diagnostics.Abstractions/1.0.0-rc2-final": {
       "sha512": "q2KCO4LYhp8DYff2+8TBSo/wCe2yWK8D9U5N5x+AJCcQu/XS42aPOfUyuiuf1YCDI71UZAeUa0JZa1wVdeJHSg==",
       "type": "package",
@@ -3896,6 +3955,18 @@
         "Microsoft.AspNetCore.Diagnostics.Abstractions.nuspec",
         "lib/netstandard1.0/Microsoft.AspNetCore.Diagnostics.Abstractions.dll",
         "lib/netstandard1.0/Microsoft.AspNetCore.Diagnostics.Abstractions.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/1.0.0-rc2-final": {
+      "sha512": "a2vLLLzRsIMuHJJUCNUSHYhshCpmXrEQOCzwJByNV0uv8LmVocg0cB+k3cR13I2wHcrX45i2g2vZZuoB5D+9Xg==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
+        "lib/net451/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml"
       ]
     },
     "Microsoft.AspNetCore.Hosting/1.0.0-rc2-final": {
@@ -4413,7 +4484,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore/1.0.0-rc2-final": {
-      "sha512": "i9HsjubXO6JGGGIkLe/qle2TRD+78oraaVXVQ+koGDSmdhEb/hg71jmOvZQXKqZ3bakx2eG+6U4s2CcEfbPtGw==",
+      "sha512": "Dfvod7+Sk3L01bBXsLCfdr1t0WHmEUV1tEnfs9iOxhaM3ViNI1XC5jSzzill0yVkdhnZ/u4SfsJGy1nw5r9VfQ==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.1.0.0-rc2-final.nupkg.sha512",
@@ -4427,7 +4498,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/1.0.0-rc2-final": {
-      "sha512": "G0rIiI8hlcYl+QXOIvtM/0Eox0wlxM30itzOQlsYAxsUe6eN5jNuI5BW9SU4QzOARiWaH9gTYnns2xXgKbV4Hw==",
+      "sha512": "YLsLZbwnlQGgTfk6OQE7hYwTCT9/4cg2D+k/ilguxizKVU9u3v4TOQW8daQcN8nas/TNoQxOyzVXYD897Y5Myw==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.Relational.1.0.0-rc2-final.nupkg.sha512",
@@ -4441,7 +4512,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational.Design/1.0.0-rc2-final": {
-      "sha512": "3AcZmXbF7vIQc+l1UQ/6oiP/xTJGEZkyc8CURSXx2JLtUh5AhTnuzy/zqf5s6AgisOpkc0gDdsPiqqk+94cXhQ==",
+      "sha512": "THYJGt3xN9HEycpUpOiTn88FxP3IcGowCbPi9mK4ArAgKDXmn/LXL67YmwM50EEGxLfybxm6yzzgUGe7EY1/kg==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.Relational.Design.1.0.0-rc2-final.nupkg.sha512",
@@ -4455,7 +4526,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.SqlServer/1.0.0-rc2-final": {
-      "sha512": "5BJ9VrgVbP/OqIuRow8nZkwbtr5CKjCyQGaXsBLZbzL8LZRkY1rb8kWYBusTJeZ2LjnnV0liQeNPRs3C15pIPQ==",
+      "sha512": "bWcs1+an63ck3OGaMHxhfO/6uxrWGsX95HCszrQE9QSUd9TKctpDGBgYLhLL/zJ9ez1p2IHofBWH2/lwHgTbUQ==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.SqlServer.1.0.0-rc2-final.nupkg.sha512",
@@ -4467,7 +4538,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.SqlServer.Design/1.0.0-rc2-final": {
-      "sha512": "qhjAU5QdWMfwZ1FSDbqJfIL+kLfUH7yXt0XK4QaLYbupbeYHGk7ObLmDd68gxlPXmuL5S1FSJO5jszLNmXmKrg==",
+      "sha512": "qfdYYfigbGz0jwuJR24mbtTASrcN9lg0+IR1MXdNAkR5/SRYbT44baK9E499r9P9p/tX6eUQNspcMEVUeQ+ykQ==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.SqlServer.Design.1.0.0-rc2-final.nupkg.sha512",
@@ -4479,7 +4550,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools/1.0.0-preview1-final": {
-      "sha512": "lRQALPgYcf8c6U2xRhgCwbQ1bdcDVe4Xl6a8s1Lo8HDYBn4GVLiKJUbGdJ0hySwX+br1irOoKAG+GdL453Q2mQ==",
+      "sha512": "X+XFJwnjr+Bxf+H2ZgHlceVJf6AJDrD+MXyGpjpmdcLb8gKY33uzRIcxJNm2OI9oY3/BBecRaImHnOpjP3Zkzg==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.Tools.1.0.0-preview1-final.nupkg.sha512",
@@ -4502,7 +4573,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools.Cli/1.0.0-preview1-final": {
-      "sha512": "rB+lVCt2vZ7ASHweT2ltuNMPR2xLA45WL2CGmQtrR+ZUoVB++WJLGIDQxisKRcViDA5huwpZkcXW0R0kPSlE9g==",
+      "sha512": "A7riVWzHIiobFuJezkYVHDcLOrGQTxJ/Hsq0eCNV/7mHgYG9WYcfuZgvvD3ipY7Cfh0oPLE6dk4Z+qsKSviXgg==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.Tools.Cli.1.0.0-preview1-final.nupkg.sha512",
@@ -4515,7 +4586,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools.Core/1.0.0-rc2-final": {
-      "sha512": "0L30NEnJaFdbc8a+B9nLb2kkMfnz94RFvJ8JWlO1u73wRChEafB7wLozyhCJFZziEEp8IbFYTzF3omR6gDfsmA==",
+      "sha512": "RV7C+/J2A4lAffXd2XNA0q4V26dPioAuBFAUiitCxyJT2YHVVX+L8VK5YbTlI/pN+d5qpCye7Qia9pL9RGrjSQ==",
       "type": "package",
       "files": [
         "Microsoft.EntityFrameworkCore.Tools.Core.1.0.0-rc2-final.nupkg.sha512",
@@ -4620,6 +4691,18 @@
         "lib/net451/Microsoft.Extensions.Configuration.Json.xml",
         "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll",
         "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc2-final": {
+      "sha512": "UAj6RZp2uSDc+XJvlPJGScVH+LtOiJaRxXhFPTBy38vfLf4B+5bqpaiHwSjl01HbyT0V4Iy7tiI9EdTfTEspgA==",
+      "type": "package",
+      "files": [
+        "Microsoft.Extensions.Configuration.UserSecrets.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.UserSecrets.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.UserSecrets.xml"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/1.0.0-rc2-final": {
@@ -9816,6 +9899,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Microsoft.AspNetCore.Diagnostics >= 1.0.0-rc2-final",
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Mvc >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0-rc2-final",
@@ -9826,6 +9911,7 @@
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc2-final",
+      "Microsoft.Extensions.Configuration.UserSecrets >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc2-final",
@@ -9865,13 +9951,32 @@
         "runtime": {
           "lib/netcoreapp1.0/dotnet-publish-iis.dll": {}
         }
+      },
+      "Microsoft.Extensions.SecretManager.Tools/1.0.0-preview1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc2-final",
+          "Microsoft.NETCore.App": "1.0.0-rc2-3002702",
+          "Newtonsoft.Json": "8.0.3",
+          "System.Runtime.Serialization.Primitives": "4.1.1-rc2-24027"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-user-secrets.dll": {}
+        }
       }
     }
   },
   "projectFileToolGroups": {
     ".NETCoreApp,Version=v1.0": [
       "Microsoft.AspNetCore.Server.IISIntegration.Tools >= 1.0.0-preview1-final",
-      "Microsoft.EntityFrameworkCore.Tools >= 1.0.0-preview1-final"
+      "Microsoft.EntityFrameworkCore.Tools >= 1.0.0-preview1-final",
+      "Microsoft.Extensions.SecretManager.Tools >= 1.0.0-preview1-final"
     ]
   }
 }

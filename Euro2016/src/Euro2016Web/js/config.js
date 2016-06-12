@@ -26,11 +26,6 @@
                     return def.promise;
                 }]
             })
-            //.state('top', {
-            //    url: '/top',
-            //    template: require('./top/top.html'),
-            //    controller: 'topCtrl'
-            //})
             .state('top', {
                 url: '/top',
                 templateProvider: ['$q', function ($q) {
@@ -69,6 +64,18 @@
                 }],
                 controller: 'userCtrl',
                 resolve: {
+                    sss: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
+                        var deferred = $q.defer();
+                        require.ensure(['./user/userService'], function () {
+                            var module = require('./user/userService')(angApp);
+                            $ocLazyLoad.load({
+                                name: 'euro2016'
+                            });
+                            deferred.resolve(module);
+                        });
+
+                        return deferred.promise;
+                    }],
                     foo: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
                         var deferred = $q.defer();
                         require.ensure(['./user'], function () {
