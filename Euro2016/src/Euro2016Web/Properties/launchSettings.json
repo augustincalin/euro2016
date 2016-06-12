@@ -15,7 +15,7 @@
       "environmentVariables": {
         "sss": "ddd",
         "plm": "xxx",
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }
