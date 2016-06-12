@@ -6,8 +6,9 @@ module.exports = {
         vendor: ['angular', 'oclazyload']
     },
     output: {
-        path: 'wwwroot/js/',
-        filename: 'bundle.js'
+        path: './wwwroot/js',
+        filename: 'bundle.js',
+        publicPath: '/js/'
     },
     module: {
         loaders: [

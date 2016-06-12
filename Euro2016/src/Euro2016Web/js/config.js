@@ -1,6 +1,6 @@
 ﻿module.exports = function (angApp, angular) {
     angApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
-        //$locationProvider.hashPrefix('!');
+
 
         $urlRouterProvider.otherwise('/home');
         //$locationProvider.html5Mode({
@@ -17,49 +17,72 @@
             })
             .state('help', {
                 url: '/help',
-                template: require('./help/help.html')
+                templateProvider:['$q', function($q){
+                    var def = $q.defer();
+                    require.ensure(['./help/help.html'], function () {
+                        var template = require('./help/help.html');
+                        def.resolve(template);
+                    });
+                    return def.promise;
+                }]
             })
+            //.state('top', {
+            //    url: '/top',
+            //    template: require('./top/top.html'),
+            //    controller: 'topCtrl'
+            //})
             .state('top', {
                 url: '/top',
-                template: require('./top/top.html'),
-                controller: 'topCtrl'
+                templateProvider: ['$q', function ($q) {
+                    var deferred = $q.defer();
+                    require.ensure(['./top/top.html'], function () {
+                        var template = require('./top/top.html');
+                        deferred.resolve(template);
+                    });
+                    return deferred.promise;
+                }],
+                controller: 'topCtrl',
+                resolve: {
+                    foo: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
+                        var deferred = $q.defer();
+                        require.ensure(['./top'], function () {
+                            var module = require('./top')(angApp);
+                            $ocLazyLoad.load({
+                                name: 'euro2016'
+                            });
+                            deferred.resolve(module);
+                        });
+
+                        return deferred.promise;
+                    }]
+                }
             })
             .state('user', {
                 url: '/user/:id',
-                template: require('./user/user.html'),
-                controller:'userCtrl'
-            })
-            .state('group', {
-                url: '/group',
-                template: require('./group/group.html')
-            })
-        //.state('page4', {
-        //    url: '/page4',
-        //    templateProvider: ['$q', function ($q) {
-        //        var deferred = $q.defer();
-        //        require.ensure(['./page4/page4.html'], function () {
-        //            var template = require('./page4/page4.html');
-        //            deferred.resolve(template);
-        //        });
-        //        return deferred.promise;
-        //    }],
-        //    controller: 'Page4Controller',
-        //    controllerAs: 'test',
-        //    resolve: {
-        //        foo: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
-        //            var deferred = $q.defer();
-        //            require.ensure([], function () {
-        //                var module = require('./page4/page4Module.js')(Angular);
-        //                $ocLazyLoad.load({
-        //                    name: 'page4App'
-        //                });
-        //                deferred.resolve(module);
-        //            });
+                templateProvider: ['$q', function ($q) {
+                    var deferred = $q.defer();
+                    require.ensure(['./user/user.html'], function () {
+                        var template = require('./user/user.html');
+                        deferred.resolve(template);
+                    });
+                    return deferred.promise;
+                }],
+                controller: 'userCtrl',
+                resolve: {
+                    foo: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
+                        var deferred = $q.defer();
+                        require.ensure(['./user'], function () {
+                            var module = require('./user')(angApp);
+                            $ocLazyLoad.load({
+                                name: 'euro2016'
+                            });
+                            deferred.resolve(module);
+                        });
 
-        //            return deferred.promise;
-        //        }]
-        //    }
-        //});
+                        return deferred.promise;
+                    }]
+                }
+            });
     }]);
 
 };

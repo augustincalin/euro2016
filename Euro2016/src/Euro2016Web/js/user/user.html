@@ -28,12 +28,12 @@
                     <div>{{match.Team1}} - {{match.Team2}}</div>
                 </div>
                 <div flex="10" class="text-align-center">
-                    <div ng-show="match.Score1 && match.Score2">{{match.Score1}} : {{match.Score2}}</div>
-                    <div class="md-caption" ng-hide="match.Score1 && match.Score2">no data yet</div>
+                    <div ng-show="(match.Score1!=null) && (match.Score2!=null)">{{match.Score1}} : {{match.Score2}}</div>
+                    <div class="md-caption" ng-hide="(match.Score1!=null) && (match.Score2!=null)">no data yet</div>
                 </div>
                 <div flex="10" class="text-align-center">
-                    <div ng-show="match.Guess1 && match.Guess2">{{match.Guess1}} : {{match.Guess2}}</div>
-                    <div class="md-caption" ng-hide="match.Guess1 && match.Guess2">no bet</div>
+                    <div ng-show="(match.Guess1!=null) && (match.Guess2!=null)">{{match.Guess1}} : {{match.Guess2}}</div>
+                    <div class="md-caption" ng-hide="(match.Guess1!=null) && (match.Guess2!=null)">no bet</div>
                 </div>
                 <div flex="20">
                     <div>{{match.PointsGained || '0,-'}}<span class="coin-small"></span></div>
@@ -61,8 +61,8 @@
                     <div class="md-caption">match not played yet</div>
                 </div>
                 <div flex="10" class="text-align-center">
-                    <div ng-show="match.Guess1 && match.Guess2">{{match.Guess1}} : {{match.Guess2}}</div>
-                    <div class="md-caption" ng-hide="match.Guess1 && match.Guess2">no bet</div>
+                    <div ng-show="(match.Guess1!=null) && (match.Guess2!=null)">{{match.Guess1}} : {{match.Guess2}}</div>
+                    <div class="md-caption" ng-hide="(match.Guess1!=null) && (match.Guess2!=null)">no bet</div>
                 </div>
                 <div flex="20">
                     <div class="md-caption">&mdash;</div>
