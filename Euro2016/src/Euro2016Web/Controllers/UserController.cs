@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Euro2016Web.Core.Interfaces.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Euro2016Web.ViewModel;
+using Euro2016Core.Core.Interfaces.Services;
 
 namespace Euro2016Web.Controllers
 {

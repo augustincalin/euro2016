@@ -1,9 +1,6 @@
-﻿using Euro2016Web.Core.Interfaces.Services;
-using Euro2016Web.Core.Model;
+﻿using Euro2016Core.Core.Interfaces.Services;
+using Euro2016Core.Core.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Euro2016Web.ViewModel
 {

@@ -1,4 +1,4 @@
-﻿using Euro2016Web.Core.Model;
+﻿using Euro2016Core.Core.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

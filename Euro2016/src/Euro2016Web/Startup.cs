@@ -7,12 +7,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Euro2016Web.Model;
 using Euro2016Web.ViewModel;
-using Euro2016Web.Core.Services;
-using Euro2016Web.Core.Interfaces.Services;
-using Euro2016Web.Core.Model;
-using Euro2016Web.Core.Interfaces;
 using Euro2016Web.Infrastructure.Data;
-using System.Diagnostics;
+using Euro2016Core.Core.Interfaces;
+using Euro2016Core.Core.Model;
+using Euro2016Core.Core.Interfaces.Services;
+using Euro2016Core.Core.Services;
 
 namespace Euro2016Web
 {

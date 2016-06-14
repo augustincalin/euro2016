@@ -1,11 +1,10 @@
-﻿using Euro2016Web.Core.Interfaces;
-using Euro2016Web.Core.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Euro2016Web.Model;
+using Euro2016Core.Core.Model;
+using Euro2016Core.Core.Interfaces;
 
 namespace Euro2016Web.Infrastructure.Data
 {
